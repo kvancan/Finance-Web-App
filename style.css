@@ -1,0 +1,64 @@
+body {
+  font-size:1em;
+  line-height:1.618em;
+  font-family:lato;
+}
+
+table {
+  margin:auto;
+  width:10em;
+  border-collapse:collapse;
+}
+
+th, td {
+  text-align:right; 
+  margin:0;
+  padding:;
+  padding:0.4em 0.809em 0.6em;
+}
+
+td:nth-child(1) {
+  letter-spacing:1px;
+}
+
+td:nth-child(2) {
+  color:rgba(0,0,0,0.6)
+}
+
+th:nth-child(1), td:nth-child(1) {
+  text-align:left
+}
+
+tr:nth-child(odd) {
+  background:#f2f2f2;
+}
+
+.increase .change, .increase .percentage {
+  color:green;
+}
+
+.increase .change:before {
+  content:"";
+  display:inline-block;
+  float:right;
+  border:0.3em solid transparent;
+  border-bottom:0.4em solid green;
+  position:relative;
+  left:0.4em;
+  top:0.2em;
+}
+
+.decrease .change:before {
+  content:"";
+  display:inline-block;
+  float:right;
+  border:0.3em solid transparent;
+  border-top:0.4em solid red;
+  position:relative;
+  left:0.4em;
+  top:0.75em;
+}
+
+.decrease .change, .decrease .percentage {
+  color:red;
+}
