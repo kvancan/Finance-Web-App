@@ -85,7 +85,9 @@ function semboldenvericek(){
           $sonveri = $close['data'][0]['close'];
           $row["yuzde"] = (($sonveri-$row["cost"])*100)/$row["cost"];
           $row["change"] = $sonveri-$row["cost"];
-          $row["price"] = $sonveri;          
+          $row["price"] = $sonveri;   
+          $row["total"] = $row["amount"]*$row["price"];
+          $row["profit"] = ($row["cost"]*$row["yuzde"]/10);     
           array_push($rows, $row);
         }
       } else {
@@ -126,6 +128,10 @@ $final = semboldenvericek();
     <th>Price</th>
     <th>Change</th>
     <th>%</th>
+    <th>Amount</th>
+    <th>Total Profit</th>
+    <th>Total Worth</th>
+
   </thead>
   <tbody>
   <?php
@@ -133,7 +139,9 @@ $final = semboldenvericek();
 
       $row["yuzde"] = number_format((float)$row["yuzde"], 2, '.', '');
       $row["change"] = number_format((float)$row["change"], 2, '.', '');
-      echo "<tr class='stock increase'><td class='name'>".$row["symbol"]."</td><td class='value'>".$row["price"]."</td><td class='change'>".$row["change"]."</td><td class='percentage'>".$row["yuzde"]."%</td></tr>";
+      $row["profit"] = number_format((float)$row["profit"], 2, '.', '');
+
+      echo "<tr class='stock increase'><td class='name'>".$row["symbol"]."</td><td class='value'>".$row["price"]."</td><td class='change'>".$row["change"]."</td><td class='percentage'>".$row["yuzde"]."</td><td class='amount'>".$row["amount"]."</td><td class='change'>".$row["profit"]."$</td><td class='change'>".$row["total"]."$</td></tr>";
 
   }
   ?>
